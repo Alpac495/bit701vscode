@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body *{
+            font-size: 1.2rem;
+            font-family: 'Single Day';
+        }
+
+        .photo{
+            width:100px;
+            height:100px;
+            border: 1px solid red;
+            margin-left:5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>배열 초기값으로 값 지정 후 출력하기</h2>
+
+    <script>
+        const arr1 = ["rose", "gypsophila", "chrysanthemum", "dahlia", "canna"];
+        document.write(`arr1의 요소갯수 : ${arr1.length}`);
+    </script>
+    <h1>
+        arr1 배열값을 for를 사용해 출력해보자
+    </h1>
+    <h5>일반적인 for 문 사용</h3>
+    <script>
+        for (let i = 0; i < arr1.length; i++) {
+            document.write(`<div>${arr1[i]}</div>`);
+            
+        }
+    </script>
+    <h3>for of : 자동으로 그 갯수만큼 반복</h3>
+   
+    <h3>뭐가다른거읾???(진짜모름)</h3>
+    <script>
+
+        //arr1 의 데이터가 변수에게 자동으로 넘어간다
+        //어레이 내부 데이터가 옮
+        for (const a of arr1) {
+            document.write("<div>"+a+"</div>");
+            
+        }
+
+    </script>
+
+    <h3>for in : 자동으로 그 갯수만큼 반복</h3>
+    <script>
+
+        //arr1 의 데이터 인덱스값이 변수에게 자동으로 넘어간다
+        //어레이 서순이 온다
+        for(const b in arr1){
+            document.write("<div>" +b+ ":" + arr1[b] + "</div>");
+        }
+
+    </script>
+
+    <h3>arr1 데이터를 table 에 출력</h3>
+
+    <script>
+        const arrcolor=["#fafad2", "#c0c0c0", "#ffb6c1", "#98fb98", "#ffe4e1"];
+    </script>
+
+    <table border="1"style="border-collapse: collapse; width:300px">
+        <tr>
+            <th>번호</th>
+            <th>꽃 이름</th>
+            <th>색상</th>
+        </tr>
+        <script>
+            let s = "";
+            for(let idx in arr1){
+                s+="<tr bgcolor="+arrcolor[idx]+">";
+                s+="<td>"+(Number(idx)+1)+"</td>";
+                s+="<td>"+arr1[idx]+"</td>";
+                s+="<td>"+arrcolor[idx]+"</td>";
+                s+="</tr>";
+
+            }
+                document.write(s);
+        </script>
+    </table>
+</body>
+</html>

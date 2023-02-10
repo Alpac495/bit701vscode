@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body *{
+            font-size: 1.2rem;
+            font-family: 'Single Day';
+        }
+        .photo{
+            width:100px;
+            height:100px;
+            border: 1px solid red;
+            border-radius: 10px;
+           
+            line-height: 100px;
+        }
+    </style>    
+</head>
+<body>
+
+    <script>
+        var arrphoto=new Array();
+        arrphoto.push("../photo/food/10.jpg");
+        arrphoto.push("../photo/food/11.jpg");
+        arrphoto.push("../photo/shop/2.jpg");
+        arrphoto.push("../photo/shop/27.jpg");
+        arrphoto.push("../photo/animal/C8.png");
+
+        var arrTitle=["해무마요듶빱", "맹고셔벳", "쿠네쿠네", "완피수", "짐승"]
+
+        var arrPrice=new Array();
+        arrPrice[0]=11000;
+        arrPrice[1]=12000;
+        arrPrice[2]=15000;
+        arrPrice[3]=12000;
+        arrPrice[4]=167000;
+
+    </script>
+    <table border="1">
+        <tr>
+            <th>번호</th>
+            <th>상품</th>
+            <th>사진</th>
+            <th>가격</th>
+        </tr>
+            <script>
+                var menu = "";
+                var sum = 0 ;
+                for(var i in arrphoto){
+                    sum+=arrPrice[i];
+
+                    // menu+="<tr>";
+                    // menu+="<td>"+(Number(i)+1)+"</td>";
+                    // menu+="<td>"+arrTitle[i]+"</td>";   
+                    // menu+="<td>"+"<img src="+arrphoto[i]+" class='photo'></td>";
+                    // menu+="<td>"+arrPrice[i]+"</td>";
+                    // menu+="</tr>";
+
+                    menu+=
+                    `
+                    <tr>
+                        <td>${Number(i)+1}</td>
+                        <td>${arrTitle[i]}</td>
+                        <td><img src="${arrphoto[i]}" class="photo"></td>
+                        <td>${arrPrice[i]}원</td>
+                    </tr>    
+                    `
+                    ;
+
+                }
+                    document.write(menu);
+
+            </script>
+                   
+    </table>
+        <script>
+            document.write(`<b> 총 ${sum} 원. </b>`);
+        </script>
+    
+</body>
+</html>

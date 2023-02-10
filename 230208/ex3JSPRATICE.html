@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>js 사칙연산</h3>
+    <script>
+        
+            var a = 7, b=4, m, n;
+            document.write("a 는 " + (a) + " <br> b 는 " +(b) + "<br>");
+            document.write("두수 더하기 : " + (a+b) + "<br>");
+            document.write("두수 빼기 : " + (a-b) + "<br>");
+            document.write("두수 곱하기 : " + (a*b) + "<br>");
+            document.write("두수 나누기 : " + (a/b) + "<br>");
+            document.write("모듈러 : " + (a%b) + "<br><br><br>");
+            document.write("증감 연산자 : ++, -- <br>");
+
+            a++;
+            ++b;
+            document.write("a= " + a +", b="+b+"<br>");
+            m=a++;
+            document.write(`m=${m}, a=${a}<br>`);
+            n=++b; //b가 증가된 후 n으로 들어갊 (그 망할 서순)
+            document.write(`n=${n}, b=${b}<br><br><br><br><br>`);
+
+            document.write("대입 연산자 : =, +=, -=, *=, /=, %= <br>");
+            a+=2;
+            document.write("a= " +a+"<br>");
+            a-=3;
+            document.write("a= " +a+"<br>");
+            a*=5;
+            document.write("a= " +a+"<br>");
+            a/=8;
+            document.write("a= " +a+"<br>");
+            a%=5;
+            document.write("a= " +a+"<br>");
+    </script>
+
+    <h4 style="background-color: lightblue;">관계, 논리연산자</h4>
+    <script>
+        var kor = 90;
+        var eng = 88;
+        document.write((kor>eng)+"<br>");//이러면 boolean 리턴함
+        document.write((kor==eng)+"<br>");
+        document.write((kor<eng)+"<br>");
+        document.write((kor>eng && eng==100)+"<br>");
+        document.write("느낌표 붙인 녀석 "+ !(kor>eng && eng==100)+"<br>");
+        document.write("느낌표 붙인 녀석(리터럴) "+ `${!(kor>eng && eng==100)}`+"<br>");
+        document.write((kor>eng || eng==100)+"<br>");
+    </script>
+
+    <h4 style="background-color: lightblue;">조건연산자 ?</h4>
+    <script>
+        var score = 40;
+        var grade;
+        //훨씬 편한 의문문
+        grade=score>=90?"A":score>=80?"B":score>=70?"C":score>=60?"D":"FAIL";
+        document.write(`score=${score} : grade=${grade}<br>`);
+
+        
+
+    </script>
+</body>
+</html>

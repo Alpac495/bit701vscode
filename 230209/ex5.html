@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+    rel="stylesheet">
+<style>
+    body * {
+        font-size: 1.2rem;
+        font-family: 'Single Day';
+    }
+
+    .photo {
+        width: 100px;
+        height: 100px;
+        border: 1px solid red;
+        border-radius: 10px;
+
+        line-height: 100px;
+    }
+</style>
+</head>
+<body>
+    <h2>shop의 이미지 1~34까지를 table 안에 넣는다. 한줄에 여섯개</h2>
+    
+    <table>
+        <tr>
+           <script>
+               var product="";
+
+                for (let i = 1; i <= 34; i++) {
+                    
+                    //리터럴
+                    
+                    // product+=
+                    // `
+                    // <td><img src="../photo/shop/${i}.${i==24?"gif":"jpg"}" class="photo">
+                    // `
+                    
+
+                    //""로 하는거
+                    // product+="<td>";
+                    // product+="<img src='../photo/shop/"+i+(i==24?".gif":".jpg")+"' class='photo'>";
+                    // product+="</td>";
+
+
+                    
+                    //if
+
+                    product+="<td>";
+                    if(i==24){
+                        product+="<img src='../photo/shop/"+i+".gif' class='photo'>";
+                    }else{
+                        product+="<img src='../photo/shop/"+i+".jpg' class='photo'>";
+                    }
+                    product+="</td>";
+
+                    if(i%6==0){
+                        product+="</tr><tr>";
+                    }
+                    
+                }
+                document.write(product);
+
+           </script>
+        </tr>
+    </table>
+
+
+
+    <script>
+
+    </script>
+</body>
+</html>

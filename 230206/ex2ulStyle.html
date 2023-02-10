@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        /* div 같은 태그를 붙이면 아이디마냥 쓰는 것도 가능함 */
+        /* em 은 상위 태그의 n배수 크기 */
+        /* rem 은 최상위 태그의 n배수 크기 */
+        div.title{
+            font-size: 2.5em;
+            text-align: center;
+            font-family: "Jua";
+            text-shadow: 3px 3px 3px gray;
+        }
+        div.menu{ 
+            border: 1px solid blue;
+        }
+
+        div.menu>ul{
+            text-align: center;
+            list-style: none;
+            border: 1px solid blue;
+        }
+        
+        div.menu>ul>li{
+            float: left;
+            font-family: "Gamja Flower";
+            font-size: 24px;
+            width: 150px;
+            height: 70px;
+            line-height: 65px;
+            margin-right: 10px;
+            border-radius: 20px;
+            border: 1px red solid;
+            background-color: #afeeee;
+            color: #c71285;
+            cursor: pointer;
+        }
+
+        div.menu>ul>li:hover{
+            color: chartreuse;
+            background-color: white;
+            box-shadow: 5px 5px 5px gray;
+        }
+        div.menu>ul>li:active{
+            background-color: black;
+            color: white;
+        }
+
+        /* relative 는 현재좌표 기준으로 이동
+        absolute 는 절대좌표 기준으로 이동
+        fixed 일단 앱솔루트랑 비슷함 */
+        img.main_photo{
+            position: absolute;
+            left: 100px;
+            top: 500px;
+        }
+
+        img.main_photo:active{
+            left: 500px;
+            top: 750px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="title">bitcamp</div>
+    <div class="menu">
+        <ul>
+            <li>main</li>
+            <li>contact</li>
+            <li>curriculum</li>
+            <li>score</li>
+        </ul>
+    </div>   
+    <img src="../photo/C1.png" class="main_photo">    
+</body>
+</html>

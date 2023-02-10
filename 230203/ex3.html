@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        figure{
+            float: left;/*clear:both 를 주면 해제된다는 모양*/
+        }
+        figure > img{
+            height: 150px;
+            border-radius: 100px;
+        }
+        /* '>' 이걸 사이에 붙이면 " 바로 밑에" 가 된다 공백은 하위의 모든 부분을 포함한다 */
+        figure b{
+            font-family: "궁서체";
+            color: aqua;
+        }
+        figcaption{
+            text-align: center;
+        }
+        h2{
+            text-align: center;
+            font-family: "Nanum Pen Script";
+            font-size: 30px;
+            color: #2e8b57;
+            background-color: rgba(206, 176, 196, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h2>이미지 아래 이름 넣기</h2>
+    <img src="../photo/2.jpg" alt="이게몰 까용????" width="500px" border="1px">
+    <br>
+    <b>동그랑땡 산적?</b>
+    <!--굳이 div를 통하지 않아도 가능핢(몹시신기)-->
+    <figure>
+        <img src="../photo/11.jpg" alt="???" width="150px">
+        <figcaption>
+            <b>mango</b>
+        </figcaption>
+    </figure>
+    <figure>
+        <img src="../photo/9.jpg" alt="???" width="150px">
+        <figcaption>
+            연근이다 맨이야
+        </figcaption>
+    </figure>
+    <figure>
+        <img src="../photo/7.jpg" alt="???" width="150px">
+        <figcaption>
+            유링게슝
+        </figcaption>
+    </figure>
+
+</body>
+</html>

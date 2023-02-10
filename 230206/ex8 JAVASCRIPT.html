@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+</head>
+<style>
+    body *{
+        font-size: 1.5rem;
+        font-family: 'Single Day';
+    }
+</style>
+<script>
+
+</script>
+<body>
+    <div class="posa">
+        <input type="button" value="alert" onclick="alert('alert clicked!')">
+    </div>
+    <br><br>
+    <button type="button" onclick="prompt('느그 아부지 뭐하시노?','닌자동작')">prompt</button>
+    <br><br>
+    <button type="button" onclick="confirm('컨 펌 당 하 다')">confirm</button>
+    <br><br>
+    <button type="button" onclick="test1()">message</button>
+    <h3 id="result1">result1</h3>
+
+    <script>
+        function test1(){
+            alert("규동 먹어라.");
+            // document.write 는 새 페이지를 연다
+            // innerHTML html 코드를 넣는다
+            // innerText 그냥 텍스트만
+            document.getElementById("result1").innerHTML="<b>button 1 clicked</b>";
+        }
+        
+    </script>
+    <button type="button" onclick="test2()">name</button>
+    <h2 id="result2">result2</h2>
+    <h2 id="result3">result3</h2>
+
+    <script>
+        function test2(){
+            const name = prompt("kimi, nawa?", "pipimi");
+
+            //hoho1
+            document.getElementById("result2").innerHTML="<span> watashino namaewa "+name+". </span>";
+
+            //hoho2
+            //`` 이건 리터럴이라고 부름, 탭 위에 있읆. sql에서 많이 본 그거 ${} 쓸수 있게 해줌. 제이쿼리 없이
+            document.getElementById("result3").innerHTML=`<b>na wa ${name} death.`
+            //자바스크립트 오타의 경우는 검사를 돌리면 된다. 마우스 오른쪽 클릭읾.
+        }
+    </script>
+    <button type="button" onclick="test3()">test3</button>
+    <h2 id="result4">result4</h2>
+    <script>
+        function test3(){
+            const answer = confirm("u want save?");
+            console.log(answer);
+
+            if(answer == true){
+                document.getElementById("result4").innerText="data saved";
+            }else{
+                document.getElementById("result4").innerText="save failed";
+            }
+
+
+        }
+    </script>
+</body>
+</html>

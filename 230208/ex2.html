@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+
+    <style>
+        #font {
+            margin: 50 50;
+            font-size: 24px;
+            font-family: 'Jua';
+            color: orangered;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="margin: 10px 50px;">
+        <b>글꼴 변경 : </b>
+        <select id="selFont">
+            <option>GamjaFlower</option>
+            <option>NanumPenScript</option>
+            <option>Single Day</option>
+            <option selected>Jua</option>
+            <option>Lobster</option>
+        </select>
+        <br><br>
+        <b>폰트 사이즈 변경 : </b>
+        <select id="selSize">
+            <option>10px</option>
+            <option>14px</option>
+            <option>18px</option>
+            <option selected>24px</option>
+            <option>30px</option>
+            <option>40px</option>
+            <option>50px</option>
+        </select>
+        <br><br>
+        <b>폰트 컬러 선택</b>
+        <select id="selColor">
+            <!-- RGB 나 16진수 색도 가능함 -->
+            <option>blue</option>
+            <option>green</option>
+            <option>yellow</option>
+            <option selected>red</option>
+            <option>black</option>
+            <option>orangered</option>
+            <option>chocolate</option>
+        </select>
+        <br><br>
+        <!-- label을 두르면 input 이 포함한 텍스트를 눌러도 작동함 -->
+        <!--checked 는 시작부터 체크박스의 속을 채워주는 것-->
+        <b>채우기색 선택: </b>
+        <label><input type="checkbox" id="chk_Fill">채우기</input></label>
+        <br><br>
+        <b>테두리 선 색 선택: </b>
+        <label>
+            <input type="checkbox" id="chk_Border" value="10px groove gray">테두리 선</input>
+        </label>
+
+    </div>
+    <div id="font">
+        happy day<br>
+        해피데이
+    </div>
+
+    <script>
+        //head 안에 이벤트함수를 만들 경우 반드시 onload 함수 내에서 구현해야 함
+        window.onload = function () {
+            const font = document.getElementById("font");
+            document.getElementById("selFont").onchange = function (e) {
+                //.style 들의 경우에는 css 이름을 그대로 가져다 쓰는듯
+                font.style.fontFamily = this.value;
+            }
+
+            document.getElementById("selSize").onchange = function (e) {
+                font.style.fontSize = this.value;
+            }
+
+            document.getElementById("selColor").onchange = function (e) {
+                font.style.color = this.value;
+            }
+            document.getElementById("chk_Fill").onclick = function (e) {
+                // console.log("value : " +this.value);//value 값 미지정시 on
+                // console.log("check : " +this.checked);//true 혹은 false 로 값을 출력함
+
+                if(this.checked){
+                    font.style.backgroundColor="#add8e6";
+                }else{
+                    font.style.backgroundColor="white";
+                }
+            }
+
+            document.getElementById("chk_Border").onclick = function (e) {
+                if(this.checked){
+                    font.style.border=this.value;
+                }else{
+                    font.style.border="";
+                }
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>

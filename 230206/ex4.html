@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body *{
+            font-size: 2rem;
+            font-family: 'Jua';
+        }
+        marquee img{
+            width: 120px;height: 120px;
+            border: 1px black solid;
+        }
+
+        marquee img:hover{
+            width: 150px;
+            height: 150px;
+            transition: 1s;
+        }
+
+    </style>
+</head>
+<body>
+    <h3>marquee default</h3>
+        <marquee direction="right">
+            <b>have a nice day</b>
+        </marquee>
+
+        <marquee>
+            <b style="color: aqua;">have a nice day</b>
+        </marquee>
+
+        <marquee direction="right" behavior="slide">
+            <b style="color: red;">have a nice day</b>
+        </marquee>
+
+        <marquee direction="right" behavior="alternate">
+            <b style="color: blue;">have a nice day</b>
+        </marquee>
+
+        <marquee direction="right" behavior="alternate" scrollamount="50">
+            <b style="color: green;">have a nice day</b>
+        </marquee>
+
+        <h2>image</h2>
+        <marquee behavior="" direction="right">
+            <img src="../photo/7.jpg">
+            <img src="../photo/6.jpg">
+            <img src="../photo/4.jpg">
+            <img src="../photo/2.jpg">
+            <img src="../photo/1.jpg">
+            <img src="../photo/9.jpg">
+        </marquee>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <style>
+        body * {
+            font-size: 1.2rem;
+            font-family: 'Single Day';
+        }
+        #score_check{
+            text-align: center;
+        }
+        #score_check input{
+            width: 200px;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="score_check">
+        이름 <input type="text" id="user_name">
+        <br>
+        <br>
+        자바 <input type="text" id="java_score">
+        <br>
+        <br>
+        HTML <input type="text" id="html_score">
+        <br>
+        <br>
+        <button type="button" id="check_btn">결과확인</button>
+    </div>
+
+    <h1 id="result">result</h1>
+
+
+    <script>
+        const user_name = document.getElementById("user_name");
+        const java_score = document.getElementById("java_score"); 
+        const html_score = document.getElementById("html_score"); 
+
+        java_score.onchange=function(){
+            if(isNaN(this.value)){
+                alert("숫자만 작성해 주세요");
+                this.value = "";
+                this.focus();
+            }else if(java_score.value > 100 || java_score.value < 0){
+                    alert("정확한 점수를 입력해 주세요.");
+                    this.value = "";
+                    this.focus();
+        }
+    }
+
+        html_score.onchange=function(){
+            if(isNaN(this.value)){
+                alert("숫자만 작성해 주세요");
+                this.value = "";
+                this.focus();
+            }else if(html_score.value > 100 || html_score.value < 0){
+                    alert("정확한 점수를 입력해 주세요.");
+                    this.value = "";
+                    this.focus();
+        }
+    }
+
+        document.getElementById("check_btn").onclick=function(){
+
+            if(user_name.value == "" || isNaN(java_score.value)|| isNaN(html_score.value)){
+                alert("빈칸을 작성해 주세요.");
+                user_name.focus();
+            } else {
+                const sum = parseInt(java_score.value) + parseInt(html_score.value);
+                const ave = sum/2;   
+                // document.getElementById("result").innerText=`당신의 총점은 ${sum} 이고, 총점에 대한 평균은 ${ave} 입니다.`
+
+                document.getElementById("result").innerText= user_name.value + ". 당신의 총점은 " + sum + " 점 이고, 총점에 대한 평균은 " + ave + " 점 입니다.";
+          }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

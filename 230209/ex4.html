@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <style>
+        body * {
+            font-size: 1.2rem;
+            font-family: 'Single Day';
+        }
+
+        .photo {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            border-radius: 10px;
+
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var starName = ["김똘똘", "박복복", "소인배", "용팔뚝", "주펄떡", "이왕건", "사시미", "초밥왕", "허숭늉", "칭따오", "백슥삭"];
+
+        var starFace = new Array();
+
+        starFace.push("../photo/moviestar/1.jpg")
+        starFace.push("../photo/moviestar/2.jpg")
+        starFace.push("../photo/moviestar/3.jpg")
+        starFace.push("../photo/moviestar/4.jpg")
+        starFace.push("../photo/moviestar/5.jpg")
+        starFace.push("../photo/moviestar/6.jpg")
+        starFace.push("../photo/moviestar/7.jpg")
+        starFace.push("../photo/moviestar/8.jpg")
+        starFace.push("../photo/moviestar/9.jpg")
+        starFace.push("../photo/moviestar/10.jpg")
+
+    </script>
+    <table border="1">
+        <caption><b>무븨수타 엔털테인믄트 소속 액터즈</b></caption>
+        <tr>
+            <script>
+                var menu = "";
+                for (var i = 1; i <=10; i++) {
+                    // menu +=
+                    //     `
+                    //     <td>
+                    //         <img src="../photo/moviestar/${i}.jpg" class="photo">
+                    //         <br>
+                    //         <b>${starName[i-1]}</b>
+                    //     </td>
+                    //     `
+
+                    menu+="<td>"        
+                    menu+="<img src='../photo/moviestar/"+i+".jpg' class='photo'>";
+                    menu+="<br>";
+                    menu+="<b>"+starName[i-1]+"</b>";
+                    menu+="</td>"
+
+
+                        ;     
+                        if(i%5==0){
+                            menu+="</tr><tr>";
+                        }
+                }
+                document.write(menu);
+            </script>
+        </tr>
+    </table>
+</body>
+
+</html>

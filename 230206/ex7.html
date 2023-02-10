@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body *{
+            font-size: 1.5rem;
+            font-family: 'Single Day';
+        }
+        table.sawon_table{
+            text-align: center;
+            width: 700px;
+            border: 5px inset   gray;
+            border-collapse: collapse;
+        }
+        table img{
+            width: 150px;
+            height: 150px;
+            border-radius: 100px;
+        }
+        table.sawon_table thead tr td{
+            border-bottom: 3px double gray;
+            border-right: 1px dotted gray;
+        }
+        table.sawon_table tbody td{
+            border: 1px solid gray;
+        }
+        table.sawon_table tr:hover{
+            cursor: pointer;
+            background-color: black;
+        }
+        
+    </style>
+</head>
+<body>
+    <table class="sawon_table">
+        <caption>사내 직원 현황</caption>
+        <thead>
+            <tr>
+                <td>성별</td>
+                <td>이름</td>
+                <td>전공</td>
+                <td>사진</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="3" bgcolor="#ffffcc">여자</td>
+                <td>엄복동</td>
+                <td>자전거 공학</td>
+                <td>
+                    <img src="../photo/자전거.png">
+                </td>
+            </tr>
+            <tr>
+                <td>알라라크</td>
+                <td>라크쉬르 전문화</td>
+                <td>
+                    <img src="../photo/죽순.png">
+                </td>
+            </tr>
+            <tr>
+                <td>모 아이</td>
+                <td>미스테리 무용학</td>
+                <td>
+                    <img src="../photo/석두.png">
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="3" bgcolor="blue">남자</td>
+                <td>아르타니스</td>
+                <td>젤나가 석판 복원학</td>
+                <td>
+                    <img src="../photo/용기병.png">
+                </td>
+            </tr>
+            <tr>
+                <td>카마인</td>
+                <td>개추벌레 심화개론</td>
+                <td>
+                    <img src="../photo/카마인.png">
+                </td>
+            </tr>
+            <tr>
+                <td>김근육</td>
+                <td>고졸</td>
+                <td>
+                    <img src="../photo/김근육.png">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

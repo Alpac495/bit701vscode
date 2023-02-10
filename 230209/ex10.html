@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #car{
+            position: absolute;
+            width: 400px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <img src="../photo/mycarimage/car3.png" id="car">
+
+    <script>
+        window.onload=function(){
+            console.log(window.innerWidth);
+            var posX=window.innerWidth-400;
+            var car=document.getElementById("car");
+            car.style.left=posX+"px";
+        
+
+        //왼쪽으로 이동하던 자동차가 0에 닿으면 초기화
+        setInterval(() => {
+            posX-=20;
+            car.style.left=posX+"px";
+            if(posX<=0){
+                posX=window.innerWidth-400;
+            }
+        }, 100);
+
+    }
+
+    </script>
+</body>
+</html>

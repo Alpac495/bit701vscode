@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        /* css 내부의 ',' 는 중복적용값을 나타낼때 쓰인다. */
+        body, body *{
+            font-size: 1.5rem;
+            font-family: 'Single Day';
+        }
+        #photo1{
+            width: 500px;
+            border: 5px groove orange;
+        }
+        #bread1{
+            margin-left: 200px;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<!--setAttribute : 속성을 변경
+    getAttribute : 속성값을 가져옴
+    innerHTML : html 태그가 섞여있을 경우/ 텍스트일 경우
+    innerText : 순수 텍스트의 경우-->
+    <h2>setAttribute, getAttribute</h2>
+    <img src="../photo/mainImage/K-038.png" id="photo1">
+
+    <br>
+    <b id="bread1">빠앙</b>
+    <br>
+    <button type="button" id="btn1">현재값</button>
+    <button type="button" id="btn2">이미지와 이름 변경하기</button>
+    <button type="button" id="btn3">되돌리기</button>
+    <button onclick="window.location.reload()">새로고침</button>
+    <h2 id="msg">데이터 출력</h2>
+
+    <!--javascript event-->
+    <script>
+        //얘는 전역변수라 사용가능
+        const photo = document.getElementById("photo1");
+        const bread = document.getElementById("bread1");
+        const message = document.getElementById("msg");
+
+        //btn1 event
+        //딱히 다른거 안하고 바로 연결하는 방법
+        //중괄호 내에서만 쓰인다고 봐야 핢(좀 당연하지)
+        document.getElementById("btn1").onclick=function(){
+            //포토 변수의 속성을 가져온다()괄호 내부에 목적을 작성
+            const b = photo.getAttribute("src");
+            const b2 = bread.innerText;
+            // message.innerText="이미지" +b+ "이름" +b2;
+            message.innerText=`이미지 경로: ${b}, 이미지 이름: ${b2}`
+        }
+        //btn2 event
+        document.getElementById("btn2").onclick=function(){
+            //변경할 변수의 속성 이름, 속성값
+            photo.setAttribute("src", "../photo/food/3.jpg");
+            bread.innerText="육계장";
+        }
+        //btn3 event
+        document.getElementById("btn3").onclick=function(){
+            photo.setAttribute("src", "../photo/mainImage/K-038.png");
+            bread.innerText="빠앙";
+        }
+    </script>
+<body>
+</body>
+</html>

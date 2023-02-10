@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .photo{
+            width:100px;
+            height:100px;
+            border: 1px solid red;
+            margin-left:5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>new array</h2>
+    <script>
+        const arr1 = new Array();
+        arr1[0] = "red";
+        arr1[1] = "green";
+        arr1[2] = "blue";
+        arr1[3] = "yellow";
+        arr1[4] = "black";
+
+        document.write("arr1의 구성요소는 = " + arr1+"<br>");
+
+        const arr2 = new Array(1,2,3,4,5);
+
+        document.write("arr2의 구성요소는 = " + arr2+"<br>");
+
+        const arr3 = new Array(10);
+
+        for (let i = 0; i < arr1.length; i++) {
+            document.write("arr1의 색"+"<b style='color: "+arr1[i]+"'>"+arr1[i]+"</b><br> ");
+    
+        }
+    </script>
+        <br>
+        <br>
+        리터럴
+        <br>
+        <br>
+    <script>    
+        for (let i = 0; i < arr1.length; i++){
+        document.write(`arr 1의 색 <b style="color:${arr1[i]}">${arr1[i]}</b><br>`);    
+
+        }
+
+    </script>
+    <br><br><br><br><br>
+    <h2>new array 선언 후 push, pop을 이용한 데이터 추가와 삭제</h2>
+    <script>
+        const arr4 = new Array();
+
+        //차례대로 0번지부터 데이터가 추가된다. push 라서
+        arr4.push("../photo/animal/C1.png");
+        arr4.push("../photo/animal/C2.png");
+        arr4.push("../photo/animal/C3.png");
+        arr4.push("../photo/animal/C4.png");
+        arr4.push("../photo/animal/C5.png");
+        arr4.push("../photo/animal/C6.png");
+
+        for (let i = 0; i < arr4.length; i++) {
+            document.write(`<img src="${arr4[i]}" class="photo"><br>`);
+            
+            
+        }
+
+        document.write("<br><br><br> pop으로 특정 데이터만 뽑기 <br>");
+
+        arr4.pop();
+
+        for (let i = 0; i < arr4.length; i++) {
+            document.write(`<img src="${arr4[i]}" class="photo"><br>`);
+            
+        }
+
+        
+
+    </script>
+        
+
+</body>
+</html>

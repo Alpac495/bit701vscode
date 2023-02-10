@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #box_wrap{
+       text-align: center;
+    }
+    #box_wrap button{
+        margin-top: 100px;
+    }
+</style>
+<body>
+    <div id="box_wrap">
+        <div id="box">
+            <!-- <img src="../photo/food/12.jpg" id="photo" width="300"> -->
+            <img src="../photo/food/12.jpg" id="photo" width="300">
+        </div>
+        <button type="button" id="bigger">점점 크게</button>
+        <button type="button" id="smaller">점점 작게</button>
+    </div>
+
+    <script>
+        const photo = document.getElementById("photo");
+
+        document.getElementById("bigger").onclick=function(){
+            const size = parseInt(photo.getAttribute("width"));
+            photo.setAttribute("width", size+10);
+            //style="width:500px;" 뭐 이럴때 쓰는 방법읾
+            // photo.style.width=(size+10)+"px";
+        }
+        
+        document.getElementById("smaller").onclick=function(){
+            const size = parseInt(photo.getAttribute("width"));
+            photo.setAttribute("width", size-10);
+
+            // photo.setAttribute("width", eval(`${size} +10`));
+        }
+
+
+    </script>
+</body>
+</html>

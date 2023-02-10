@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #fp1{
+            width: 300px;height: 400px;border: 10px inset gold;
+
+        }
+        figure{
+            text-align: center;
+        }
+
+        .btns{
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            justify-content: space-around;
+            width: 300px;height: 30px;
+            border-radius: 30px;
+        }
+        .btns button:hover{
+            cursor: pointer;
+        }
+        .radius30{
+            border-radius: 30px;
+        }
+        .radius60{
+            border-radius: 60px;
+        }
+    </style>
+</head>
+<body>
+    <figure>
+        <img src="../photo/food/1.jpg" id="fp1" title="eggbread">
+        <figcaption>
+            <b id="fn1">맛 좋아 음식</b>
+        </figcaption>
+    </figure>
+
+    <div class="btns">
+        <button id="btn1">맛좋음</button>
+        <button id="btn2">맛싯슴</button>
+        <button id="btn3">마싯슴</button>
+        <button id="btn4">맛잇읆</button>
+        <button onclick="window.location.reload()">원더풀</button>
+    </div>
+
+    <script>
+        const food1 = document.getElementById("fp1");
+        const foodname1 = document.getElementById("fn1");
+        
+        //btn1
+        document.getElementById("btn1").onclick=function(){
+            food1.setAttribute("src", "../photo/food/4.jpg");
+            foodname1.innerHTML="맛 좋은 음식";
+
+            const talk = prompt("아무 말이나 해보세요", "빨리 하셈");
+
+            //취소를 누르면 자동적으로 null값이 들어감.
+            //의도적인 "" 와는 다르다.
+            if(talk == null || talk == ""){
+                foodname1.innerText= "이 사람은 너무 성실하게 똥같이 굴었습니다.";
+            }else{
+                foodname1.innerHTML= "<b style='color=green'>"+talk+"</b>";
+            }
+        }
+        //btn2
+        document.getElementById("btn2").onclick=function(){
+            food1.setAttribute("src", "../photo/food/11.jpg");
+            foodname1.innerHTML="맛 싯슴 음식";
+            food1.setAttribute("class", "radius30");
+        }
+        //btn3
+        document.getElementById("btn3").onclick=function(){
+            food1.setAttribute("src", "../photo/food/7.jpg");
+            foodname1.innerHTML="마 싯슴 음식";
+            food1.setAttribute("class", "radius60");
+        }
+        //btn4
+        document.getElementById("btn4").onclick=function(){
+            food1.setAttribute("src", "../photo/food/5.jpg");
+            foodname1.innerHTML="맛 잇읆 음식";
+            food1.setAttribute("class", "");
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="animal" src="../photo/animal/C1.png">
+    <br><br>
+    <select id="sel">
+        <option value="../photo/animal/C1.png">애옹쓰</option>
+        <option value="../photo/animal/C2.png">야옹쓰</option>
+        <option value="../photo/animal/C3.png">매옹쓰</option>
+        <option value="../photo/animal/C4.png">뫼옹쓰</option>
+        <option value="../photo/animal/C5.png">히오쓰</option>
+        <option value="../photo/animal/C6.png">뭉뭉쓰</option>
+        <option value="../photo/animal/C7.png">왈왈쓰</option>
+        <option value="../photo/animal/C8.png">컹컹쓰</option>
+    </select>
+
+    <br><br><br>
+
+    <b>선 종류 변경</b>
+    <select id="selborder">
+        <!--selected disabled hidden 다른 항목을 선택한 후에는 사라진다.-->
+        <option selected disabled hidden>select border</option>
+        <option value="5px solid red">line1</option>
+        <option value="5px dotted blue">line2</option>
+        <option value="5px dashed green">line3</option>
+        <option value="5px groove yellow">line4</option>
+        <option value="5px inset pink">line5</option>
+    </select>
+
+    <script>
+        //this : 이벤트가 발생할 객체. 대충 바로 위나 옆으로 생각하면 될듯
+        document.getElementById("sel").onchange=function(e){
+            // event라는걸 사용함(e)도 가능
+            // alert(this.value);
+            // alert(e.target.value);
+            //둘중 하나 고르면 된다. e의 경우에는 function 옆에 e 가 붙어야 핢
+            //animal.setAttribute("src", e.target.value);
+            animal.setAttribute("src", this.value);
+            //sel.value 도 가능함
+        }
+        document.getElementById("selborder").onchange=function(e){
+            document.getElementById("animal").style.border=e.target.value;
+        }
+
+    </script>
+</body>
+</html>

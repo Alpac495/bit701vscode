@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body *{
+            font-size: 1.2rem;
+            font-family: 'Single Day';
+        }
+        .mycar{
+            width: 200px;
+            height: 100px;
+
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        for (let i=1; i<=9; i++) {
+            for (let j=1; j <= 9; j++){
+                document.write(i +"x" + j + " = " + (i*j) + "<br>");
+            }
+            document.write("<br>");
+            // document.write(`5 * ${i} = ${5*i}<br>`);      
+        }
+
+        //이게되네
+        for (let i=1; i<=10; i++) {
+            const p = "<img src='../photo/mycarimage/car"+i+".png' class='mycar'><br>";
+            document.write(p);           
+        }
+       
+    </script>
+    <h2>food</h2>
+    
+    <script>
+        for (let i=1; i<=12; i++) {
+            const p = "<img src='../photo/food/"+i+".jpg' class='mycar'><br>";
+            document.write(p);           
+        }
+    </script>
+</body>
+</html>
