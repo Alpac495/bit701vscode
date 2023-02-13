@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="result1">
+
+    </h2>
+
+
+    <script>
+        var arr1 = ["red","green","blue","gray","orange"];
+        
+        var arr2 = new Array();
+        arr2.push("../photo/food/2.jpg");
+        arr2.push("../photo/food/5.jpg");
+        arr2.push("../photo/animal/C1.png");
+        arr2.push("../photo/moviestar/5.jpg");
+        
+        
+        // arr1를 h2 태그에 출력하되 배경색도 해당 색으로 출력되도록.
+        // arr2 배열에 있는 이미지를 출력("width=100으로")
+        
+        
+    for (let i = 0; i < arr1.length; i++) {
+        document.write(`<h2 style="background-color:${arr1[i]}">${arr1[i]}</h2>`);
+        
+    }    
+
+    //of 는 값 전체
+    //in 은 인덱스 값만(숫자 순서만)
+    //이미 링크를 다 작성했을 경우에는 저장된 변수명만 적어도 충분함
+
+    for (var myPhoto of arr2) {
+        document.write(`<img src="${myPhoto}" width=100px>`);
+        
+    }    
+    document.write("<hr>");
+
+    for(var idx in arr2){
+        document.write(`${parseInt(idx)+1} : <img src="${arr2[idx]}"  width=100><br>`);
+    }
+
+    </script>
+    
+</body>
+</html>
