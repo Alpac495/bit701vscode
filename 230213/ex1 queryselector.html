@@ -5,8 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+    rel="stylesheet">
 </head>
 <body>
-    
+    <div class="one">class 1-1</div>
+    <div class="one">class 1-2</div>
+    <div class="one">class 1-3</div>
+    <hr>
+    <div class="apple">
+        <div class="banana">apple-banana</div>
+        <div class="kiwi">apple-banana-kiwi</div>
+    </div>
+
+    <h3>h3-1</h3>
+    <h3>h3-2</h3>
+    <h3>h3-3</h3>
+    <h3>h3-4</h3>
+
+    <script>
+        var a1 = document.getElementsByClassName("one");
+        document.write(`class one 은 총 ${a1.length} 개 입니다.<br>`);
+        //a1의 첫번째 요소의 style 값 중 font-size를 20px 로 변경
+        a1[0].style.fontSize="20px";
+        a1[1].style.color="red";
+        a1[2].style.border="3px solid gray";
+
+        for(var a of a1){
+            a.style.fontFamily="Comic Sans MS";
+        }
+
+        //div 같은 것들 경우에는 태그네임. (마찬가지로 당연함)
+        var a2 = document.getElementsByTagName("div");
+        document.write(`div 의 개수는 총 ${a2.length} 개 입니다.<br>`);
+
+        // for(var idx in a2){
+        //     a2[idx].style.backgroundColor="#ffc";
+        // }
+
+        //.querySelector 는 당연하지만 클래스 부를 때 .을 붙여야 함
+        //클래스 명이 one 인 앨리먼트의 첫번째 요소값 1 개만 반환함 : 배열이 아님
+        var a3 = document.querySelector(".one");
+        document.write(`class one 은 총 ${a3.length} 개 입니다.<br>`);
+        a3.style.fontSize="30px";
+
+        //모든 요소값을 가져온다. : 배열 형태로 반환
+        var a4 = document.querySelectorAll(".one");
+        document.write(`class one 은 총 ${a4.length} 개 입니다.<br>`);
+
+        for(var a of a4){
+            a.style.color="magenta";
+        }
+
+        var a5 = document.querySelector(".apple .banana");
+        a5.style.textDecoration="underline";
+
+        var a6 = document.querySelector(".apple .kiwi");
+
+        //복수 개의 엘리먼트 반환-배열타입
+        var a7 = document.querySelectorAll("h3");
+        document.write(`h3 는 총 ${a7.length} 개 입니다.<br>`);
+        for(var a of a7){
+            a.style.backgroundColor="lightgray";
+        }
+    </script>
+
 </body>
 </html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <img src="../photo/animal/C1.png" width="130">
+        <div class="two">
+            <h4>hava a nice day</h4>
+            <div class="three">
+                <img src="../photo/animal/C5.png" width="130">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 고양이 사진에 커서를 올리면 아래 글자의 속성을 변경 ( width="30px" background-color lightgray color blue)
+
+        // 마우스 벗어나면 다시 초기값.
+
+        document.querySelector("div img").onmouseover = function () {
+            var text = document.querySelector(".two>h4");
+            text.style.fontSize = "30px";
+            text.style.backgroundColor = "lightgray";
+            text.style.color = "blue";
+
+            var pic = document.querySelector(".three>img");
+            pic.style.border = "5px solid black"
+        }
+
+        document.querySelector("div img").onmouseout = function () {
+            var text_pre = document.querySelector(".two>h4");
+            text_pre.style.fontSize = "20px";
+            text_pre.style.backgroundColor = "";
+            text_pre.style.color = "";
+
+            var pic_pre = document.querySelector(".three>img");
+            pic_pre.style.border = "none";
+        }
+
+    </script>
+</body>
+
+</html>

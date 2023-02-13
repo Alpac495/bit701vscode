@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body *{
+            font-size: 1.2rem;
+            font-family: 'Single Day';
+        }
+    </style>
+</head>
+<body>
+    <h3> 오늘은 월 요일</h3>
+    <img src="../photo/div_img/beauty3.jpg" width="300">
+    <h3>자바수쿠룹투 어렵욺</h3>
+    <h4>재미슮??</h4>
+
+    <hr>
+
+    <h1 class="one">사진 다음 텍스트</h1>
+    <h1 class="two">사진 다음 다음 텍스트</h1>
+    <h1 class="three">사진 이전 텍스트</h1>
+
+    <script>
+        document.querySelector("img").onmouseover=function(){
+            //이미지 다음 엘리먼트의 텍스트 얻어내기     
+            var next1 = this.nextElementSibling.innerText;
+            var next2 = this.nextElementSibling.nextElementSibling.innerText;
+            var pre = this.previousElementSibling.innerText;
+            //class one에다 출력
+            document.querySelector(".one").innerText=next1;
+            document.querySelector(".two").innerText=next2;
+            document.querySelector(".three").innerText=pre;
+        }
+
+        document.querySelector("img").onmouseout=function(){
+
+            document.querySelector(".one").innerText="사진 다음 텍스트";
+            document.querySelector(".two").innerText="사진 다음 다음 텍스트";
+            document.querySelector(".three").innerText="사진 이전 텍스트";
+        }
+    </script>
+
+</body>
+</html>

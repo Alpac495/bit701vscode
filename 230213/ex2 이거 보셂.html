@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+          body *{
+            font-size: 1.2rem;
+            font-family: 'Single Day';
+        }
+        .line1{
+            border: 10px groove hotpink;
+            width: 500;
+            height: 100;
+            line-height: 100px;
+            text-align: center;
+        }
+        .line2{
+            border: 10px solid gray;
+            width: 500;
+            height: 100;
+            line-height: 100px;
+            text-align: center;
+        }
+    </style>    
+</head>
+<body>
+    <div class="message">
+        월요일 안타노시
+    </div>
+    <div class="images">
+        <img src="../photo/animal/C1.png" width="100px">
+        <div class="box">
+            <img src="../photo/animal/C2.png" width="100px">
+        </div>
+        <div class="box">
+            <img src="../photo/animal/C3.png" width="100px">
+        </div>
+        <div class="box">
+            <img src="../photo/animal/C4.png" width="100px">
+        </div>
+        
+    </div>
+    <script>
+        //홈페이지 새로고침 시 발동
+        window.onload=function(){
+            //같은 클래스를 공유하더라도 첫번째 요소값 이외에는 가져오지 않음
+            var m = document.querySelector(".message");
+            var i = document.querySelectorAll(".images .box img");
+            m.onmouseover=function(){
+                //message line1 은 어째서 작동하는가
+                //단순히 편입시키는 것일지도
+                //message 없으면 교체고
+                this.setAttribute("class", "message line1");
+            }
+            m.onmouseout=function(){
+                this.setAttribute("class", "message line2");
+            }
+
+            // i 를 idx 에 담아서 i.length 만큼 돌린다. 
+          for(var idx of i){
+            //생성된 변수로 돌리면 뭔가 지랄남
+            idx.onmouseover=function(){
+                //pre_image가 본래 이미지를 담고 있다.
+                pre_image=this.getAttribute("src");
+                this.setAttribute("src", "../photo/animal/C8.png");
+            }
+            idx.onmouseout=function(){
+                this.setAttribute("src", pre_image);
+            }
+          }
+        }
+
+    </script>
+</body>
+</html>
