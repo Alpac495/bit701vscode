@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <style>
+        body * {
+            font-size: 1.2rem;
+            font-family: 'Single Day';
+        }
+
+        .photo {
+            width: 230px;
+            height: 250px;
+            border: 10px inset gold;
+        }
+
+        .message {
+            margin-left: 50px;
+            text-shadow: 5 5 5 gray;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../photo/animal/C3.png" class="photo">
+    <br><br>
+    <h1 class="message">happy day</h1>
+    <script>
+
+        var arr1 = new Array();
+        arr1.push("../photo/animal/C4.png");
+        arr1.push("../photo/animal/C5.png");
+        arr1.push("../photo/animal/C6.png");
+        arr1.push("../photo/animal/C7.png");
+        arr1.push("../photo/animal/C8.png");
+
+        var arrmsg = ["111", "222", "333", "444", "555"];
+
+        setInterval(() => {
+            let su = parseInt(Math.random() * 4)+1;
+            //아래것도 된다고 함(전에 들엇읆)
+            // let pic = document.querySelector(".photo").src;
+            let pic = document.querySelector(".photo");
+            let msg = document.querySelector(".message");
+            pic.setAttribute("src", `${arr1[su]}`);
+            msg.innerHTML=arrmsg[su];
+
+        }, 1000);
+
+    </script>
+</body>
+
+</html>

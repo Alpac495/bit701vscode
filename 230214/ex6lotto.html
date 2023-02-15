@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-size: 1.2rem;
+            font-family: 'Single Day';
+            background-color: aqua;
+        }
+
+        .title {
+            color: red;
+            font-size: 30px;
+            margin: 30px 30px;
+        }
+
+        /* 붙여쓰면 div 중 class 가 title인 것을 뜻하게 된다. */
+        div.title .num {
+            color: blue;
+        }
+
+        .title .day {
+            color: aliceblue;
+            font-size: 22px;
+        }
+
+        .box {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 630px;
+            height: 120px;
+            background-color: white;
+            margin-left: 20;
+            margin-top: 20;
+            border-radius: 100px;
+        }
+
+        /*div가 아닌 같은 이름의 클래스일 때를 대비*/
+        /*tag + class 의 경우에 태그.아이디 혹은 클래스 같은 식으로 작성해야 함*/
+        div.box div.lotto {
+            font-size: 45px;
+            background-color: red;
+            border-radius: 100px;
+            width: 75px;
+            height: 75px;
+            text-align: center;
+            line-height: 80px;
+
+        }
+
+        #btnLotto {
+            width: 200px;
+            height: 50px;
+            margin-left: 100px;
+            margin-top: 50px;
+            font-size: 23px;
+            cursor: pointer;
+        }
+
+        #btnLotto:hover {
+            background-color: black;
+            color: white;
+            box-shadow: 5px 5px 5px gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="title">
+        <b class="num">1025</b>회
+        <b class="day">0000-00-00</b>
+    </div>
+    <div class="box">
+        <div class="lotto">1</div>
+        <div class="lotto">1</div>
+        <div class="lotto">1</div>
+        <div class="lotto">1</div>
+        <div class="lotto">1</div>
+        <div class="lotto">1</div>
+    </div>
+    <button type="button" id="btnLotto">로또 숫자 구하기</button>
+
+    <script>
+        window.onload = function () {
+            let today = new Date();
+            let year = today.getFullYear();
+            let month = today.getMonth() + 1
+            let day = today.getDate();
+
+            document.querySelector("b.day").innerHTML = `${year}-${month}-${day}`
+
+            var lotto = document.querySelectorAll("div.box>div.lotto");
+            lotto[1].style.backgroundColor = "yellowgreen";
+            lotto[1].style.color = "white";
+
+            lotto[2].style.backgroundColor = "yellowgreen";
+            lotto[2].style.color = "white";
+
+            lotto[4].style.backgroundColor = "pink";
+            lotto[4].style.color = "white";
+
+            lotto[5].style.backgroundColor = "pink";
+            lotto[5].style.color = "white";
+
+            document.getElementById("btnLotto").onclick = function () {
+                let num = new Array(6);
+                for (let i = 0; i < num.length; i++) {
+                    num[i] = parseInt(Math.random() * 45) + 1;
+
+                    for (let j = 0; j < i; j++) {
+
+                        if (num[i] == num[j]) {
+                            i--;
+                            break;
+                        }
+                    }
+                }
+                for (let idx in lotto) {
+                    lotto[idx].innerHTML = num[idx];
+
+
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

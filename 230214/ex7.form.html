@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-size: 1.2rem;
+            font-family: 'Single Day';
+            background-color: aqua;
+            ;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        window.onload = function () {
+            //1
+            document.getElementById("txtin").onkeyup = function (e) {
+                if (e.keyCode == 13) {
+                    let v = this.value;
+                    document.querySelector(".one").innerText = v;
+                }
+            }
+            //2
+            document.getElementById("txtin2").onkeypress = function () {
+                let v2 = this.value;
+                document.querySelector(".two").innerText = v2;
+                //document.querySelector(".two").innerText=this.value; 얘도 가능함 (더 쉽다)
+
+            }
+            //3
+            document.getElementById("txtcolor").onchange = function () {
+                //document.querySelector(".three").innerText=this.value;
+                //document.querySelector(".three").style.backgroundColor="color" 뭐 이런 것도 가능함
+                let v3 = this.value;
+                let v4 = document.querySelector(".three");
+                v4.style.backgroundColor = v3;
+            }
+            //4
+            document.getElementById("chkbod").onclick = function () {
+                let v5 = document.querySelector(".four")
+                if (this.checked) {
+                    v5.style.fontWeight = "bold";
+                } else {
+                    v5.style.fontWeight = "normal";
+                }
+            }
+            document.querySelector("#chkline").onclick = function () {
+                let v6 = document.querySelector(".four")
+                if (this.checked) {
+                    v6.style.textDecoration = "underline";
+                } else {
+                    v6.style.textDecoration = "none";
+                } 
+            }
+            //5
+            let tcolor=document.querySelectorAll(".tcolor");
+            for (let i = 0; i < tcolor.length; i++) {
+                tcolor[i].onclick=function(){
+                    console.log(this.value);
+                    document.querySelector(".five").style.color=this.value;
+                }
+                
+            }
+            //6
+            let bcolor = document.querySelectorAll(".bcolor");
+          
+            document.querySelector("#btncolor").onclick=function(){
+                console.log(1);
+                for(let i=0; i<bcolor.length; i++){
+                    console.log(bcolor[i].value);
+                    if(bcolor[i].checked){
+                        document.querySelector(".five").style.backgroundColor=bcolor[i].value;
+                    }
+                }
+            }
+
+            //7
+            document.querySelector("#selfood").onchange=function(){
+                let tag = `<img src="${this.value}" width=130>`
+                document.querySelector(".six").innerHTML=tag;
+            }
+
+        }
+
+
+    </script>
+    <b>js form 태그값 읽기 연습</b>
+    <table border="1" style="width: 600px; border-collapse: collapse;">
+        <tr bgcolor="gray">
+            <th width="150">종류</th>
+            <th width="400">폼 태그</th>
+            <th width="200">결과</th>
+        </tr>
+        <tr>
+            <td>1.input-text</td>
+            <td>
+                <input type="text" id="txtin" value="bitcamp">
+                : 입력 후 엔터
+            </td>
+            <td class="one"></td>
+        </tr>
+
+        <tr>
+            <td>2.input-text</td>
+            <td>
+                <input type="text" id="txtin2" value="bitcamp">
+                : 입력하면 바로 출력
+            </td>
+            <td class="two"></td>
+        </tr>
+
+        <tr>
+            <td>3.input-color</td>
+            <td>
+                <input type="color" id="txtcolor" value="#cfcfcf">
+                : 색상변경
+            </td>
+            <td class="three"></td>
+        </tr>
+
+        <tr>
+            <td>4.input-checkbox</td>
+            <td>
+                <!--label 태그를 type="checkbox" 위아래로 끼워넣으면 텍스트만 눌러도 체크박스가 작동함-->
+                <label><input type="checkbox" id="chkbod">굵게</label>
+                &nbsp;&nbsp;
+                <label><input type="checkbox" id="chkline">밑줄</label>
+
+            </td>
+            <td class="four">happy</td>
+        </tr>
+
+        <tr>
+            <td>5.input-radio</td>
+            <td>
+                <!--radio를 같은 그룹으로 묶길 원하는 경우, 반드시 같은 name으로 묶어야 한다
+                그렇지 않으면 등신같아짐-->
+                <label><input type="radio" class="tcolor" value="orange"name="font">주황</label>
+
+                <label><input type="radio" class="tcolor"value="red"name="font">빨강</label>
+
+                <label><input type="radio" class="tcolor"value="blue"name="font">파랑</label>
+
+                <label><input type="radio" class="tcolor"value="hotpink"name="font">호또핑크</label>
+
+                <br>
+
+                <label><input type="radio" class="bcolor" value="#afeeee" name="bcolor">하늘색</label>
+
+                <label><input type="radio" class="bcolor" value="#90ee90" name="bcolor">연두</label>
+
+                <label><input type="radio" class="bcolor" value="#ffd700" name="bcolor">노랑</label>
+
+                <label><input type="radio" class="bcolor" value="#ffffff" name="bcolor">흰색</label>
+
+                <button type="button" id="btncolor">변경</button>
+
+            </td>
+            <td class="five">글자색 변경</td>
+        </tr>
+
+        <tr>
+            <td>5.select</td>
+            <td>
+                이미지 선택 : 
+                <select id="selfood">
+                    <option hidden disabled selected>선택하세요</option>
+                    <option value="../photo/food/1.jpg">수박</option>
+                    <option value="../photo/food/3.jpg">옴츠</option>
+                    <option value="../photo/food/5.jpg">앙뜨레</option>
+                    <option value="../photo/food/7.jpg">삐요르</option>
+                </select>
+
+            </td>
+            <td class="six"></td>
+        </tr>
+
+      
+
+    </table>
+
+</body>
+
+</html>

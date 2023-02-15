@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #view{
+            position: absolute;
+            left: 300px;top: 50px;font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!--web storage 클라이언트의 브라우저에 소량의 데이터를 저장해두기 위한 기억공간 (자바의 쿠키와 흡사)
+    
+    localStorage : 반영구적 보관 크기는 약 5mb
+    sessionStorage : 세션이 유효한 만큼만 보관-->
+    <h2>localStorage & sessionStorage</h2>
+    <button type="button" id="btnadd">저장</button>
+    <button type="button" id="btndel">삭제</button>
+    <button type="button" id="btnalldel">전체삭제</button>
+    <button type="button" id="btnview">내용보기</button>
+    <br>
+    <div id="view">result...</div>
+
+    <script>
+        document.getElementById("btnadd").onclick=function(){
+            //대충 키, 밸류 이런걸로 생각하면 될듯
+            localStorage.setItem("loginid", "master"); 
+            localStorage.address="닌자시 동작구"
+            localStorage["hp"]="010-1111-2222"
+
+            //브라우저를 닫으면 제거된다
+            sessionStorage.className="Java701";
+        }
+        document.getElementById("btndel").onclick=function(){
+            localStorage.removeItem("address");
+        }
+        document.getElementById("btnalldel").onclick=function(){
+            localStorage.clear();
+            sessionStorage.removeItem("className");
+        }
+        document.getElementById("btnview").onclick=function(){
+            
+            //얻는 방법도 3가지
+            let loginid=localStorage.getItem("loginid");
+            let address=localStorage.address;
+            let hp = localStorage["hp"];
+
+            document.getElementById("view").innerText=
+            `loginid : ${loginid}
+             address : ${address}
+             hp : ${hp}
+            `;
+        }
+
+    </script>
+
+</body>
+</html>

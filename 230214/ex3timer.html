@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body *{
+            font-size: 1.2rem;
+            font-family: 'Single Day';
+        }
+        .timer{
+            margin: 30px 30px;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer">
+        00:00:00
+    </div>  
+
+    <script>
+        window.onload=function(){
+            // 이게 훨씬 쉬운듯
+            // setInterval(write_timer, 1000);
+
+            setInterval(() => {
+                write_timer();
+            }, 1000);
+        }
+        //사용자 함수 (호출하기 전까지는 몬쓴다)
+        //화살표 함수 = 함수명(( => {})) 이런 구조다
+
+        function write_timer(){
+            let today=new Date();
+            //현재년도(네자리 숫자) 반환
+            let year =today.getFullYear(); 
+            let month = today.getMonth()+1
+            //현재 날짜
+            let day = today.getDate();
+            let hour = today.getHours();
+            let min = today.getMinutes();
+            let sec = today.getSeconds();
+
+            document.querySelector(".timer").innerHTML=
+            ` 오늘은 ${year} 년 ${month<10?0+String(month):month} 월 ${day} 일입니다<br> 
+              현재 시간은 ${hour} 시 ${min<10?0+String(min):min} 분 ${sec<10?0+String(sec):sec} 초 입니다 <br>`;
+        }
+    </script>
+    
+</body>
+</html>
