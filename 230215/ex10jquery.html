@@ -18,19 +18,102 @@
         }
     </style>
     <script>
-        $(document).ready(function(){
-            alert("윈도우 로딩 이벤트");
+        // $(document).ready(function(){
+        //     alert("윈도우 로딩 이벤트");
+        // });
+
+        
+                // 위에놈을 줄여쓰면 이거 
+                // $(function(){
+                //     alert("hello");
+                // });
+                
+        /*
+            attr("요소 속성"):속성값을 반환
+            attr("요소 속성", "값"):속성값 변경
+
+            css("style 속성"):속성값 반환
+            css("style 속성","값"):속성값 반환
+
+            사용 예시
+
+            attr({
+                "속성1":"값1"
+                "속성2":"값2"
+            });
+
+            css({
+                "속성1":"값1"
+                "속성2":"값2"
+            });
+        */
+
+        //모든 h1 속성 태그의 css 값을 변경함
+        //$("h1").css("color", "red")
+        //여러가지 속성을 변경 시, 한 줄에 계속 나열하는 것도 방법임
+        //하지만 너무 많은 속성을 계속 나열해 변경하는 것은 불가능.
+        //그러할 경우에는 {} 속에 여러 속성을 넣어 변경한다
+        $(function(){
+            // $("h1").css("color", "red").css("border", "5px inset gray");
+
+            $("h1").css({
+                "color":"blue",
+                "background-color":"#ccf",
+                "cursor":"pointer",
+                "border":"6px  dotted gray"
+            });
+            $("h1").mouseover(function(){
+                $(this).css({
+                    "color":"green",
+                    "cursor":"pointer",
+                    "border":"10px groove red",
+                    "background-color":"rgba(152, 122, 231, 0.6)"
+                });
+            });
+            $("h1").mouseout(function(){
+                $(this).css({
+                    "color":"blue",
+                    "cursor":"pointer",
+                    "border":"6px  dotted gray",
+                    "background-color":"#ccf"
+                });
+            });
+
+            //3초 뒤 class happy 안의 이미지 소스를 변경해보자
+            setTimeout(() => {
+                $(".happy img").attr({
+                    "src":"../photo/jquery_image/06.png"
+                });
+            }, 3000);
+
+            setTimeout(() => {
+                $(".nice img").attr({
+                    "src":"../photo/jquery_image/06.png",
+                    "width":"300px"
+                });
+            }, 5000);
+
+            //전체 img 중 2번째 의 border 변경
+            $("img").eq(1).css({
+                "border":"5px dotted orange"
+            });
+            //전체 h2 태그 중 첫번째 태그의 글자색과 글꼴을 변경하라
+            $("h2").eq(0).css({
+                "color":"purple",
+                "font-family":"Jua"
+            });
         });
     </script>
 </head>
 
 <body>
-    <h1>h1 tag</h1>
+    <h1>h1 tag #1</h1>
     <div class="happy">
         <h2>class happy 아래 h2 태그</h2>
         <img src="../photo/jquery_image/01.png" alt="">
     </div>
 
+    <h1>h1 tag #2</h1>
     <div class="nice">
         <h2>class nice 아래에 h2 tag</h2>
         <img src="../photo/jquery_image/02.png" alt="">

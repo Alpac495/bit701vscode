@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+</head>
+
+<body>
+    <div class="one">
+        <h3>beatiful day</h3>
+        <img src="../photo/animal/C1.png" width="60">
+        <div class="bit">
+            <h2>mouse here</h2>
+            <h4 color="green">this is hearthstone</h4>
+        </div>
+
+        <h3>wonderful day</h3>
+        <img src="../photo/animal/C2.png" width="60">
+        <div class="bit">
+            <h2>mouse here</h2>
+            <h4 color="blue">this is shadowverse</h4>
+        </div>
+
+        <h3>fantastic day</h3>
+        <img src="../photo/animal/C3.png" width="60">
+        <div class="bit">
+            <h2>mouse here</h2>
+            <h4 color="red">this is yugioh</h4>
+        </div>
+    </div>
+
+    <div class="two" bgcolor="red">
+        <img src="" width="150" alt="커서가 올라간 이미지는 여기 출력">
+        <h2>마우스 아래 글자</h2>
+        <h3>h3글자(사진위)를 여기에</h3>
+    </div>
+
+    <script>
+        //div.two 의 위치를 절대좌표로 left 400 top 100
+        //border, width, height 적당한 값으로 저장
+
+        //div.one 의 border-bottom 을 10px double gray 로 설정
+        //div.one 아래의 h2 에 cursor:pointer
+
+        //마우스를 div.one 아래의 h2에 올리면
+        //그 다음 h4 태그로부터 color 값을 얻어 h2 배경색으로 지정
+        //마우스 위치 위의 사진을 우측 사진에 나오도록 만들다
+        //아래의 h4, 위의 h3 값을 얻어 우측태그에 넣기
+
+        $(function () {
+
+            let firpic = $(".two img").attr("src");
+            let fircolor = $("div.two").css("background-color", "white");
+            let firtext1 = $(".two h2").text();
+            let firtext2 = $(".two h3").text();
+
+
+            $(".two").css({
+                "position": "absolute",
+                "left": "400px",
+                "top": "100px",
+                "border": "5px solid red",
+                "width": "200px",
+                "height": "200px"
+            });
+
+            $(".one").css({
+                "border-bottom": "10px double gray"
+            });
+            $(".one h2").css({
+                "cursor": "pointer",
+                "width": "300px"
+            });
+
+            $(".one").find("h2").hover(function () {
+                let bgcolor = $(this).next().attr("color");
+                let pic = $(this).parents().prev().attr("src");
+                let text = $(this).siblings("h4").text();
+                let upper_text = $(this).parents().prev().prev().text();
+                //그 위치 자체가 목적일 경우 소괄호 안에 굳이 태그나 아이디, 클래스를 적을 이유는 없다.
+
+                $(".two").css("background-color", bgcolor);
+                $(".two img").attr("src", pic);
+                $(".two h3").text(text);
+                $(".two h2").text(upper_text);
+            }, function () {
+                $(".two img").attr("src", "");
+                $(".two").css("background-color", "#fff");
+                $(".two h2").text(firtext1);
+                $(".two h3").text(firtext2);
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>
