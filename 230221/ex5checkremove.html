@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body,
+        body * {
+            font-family: 'Single Day';
+        
+        }
+     
+        figure .photo{
+            float: left;
+            margin-right: 10px;
+            
+        }
+        figure.photo img{
+            width: 100px;height: 100px;
+            display: flex;
+        }
+        figure .photo figcaption{
+            text-align: center;
+        }
+        label.all{
+            font-size: 30px;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        $(function(){
+            init_photo();
+        });
+
+        function init_photo(){
+            let s="";
+            for (let i = 1; i <= 6; i++) {
+                s+=`
+                    <figure class="photo">
+                        <img src="../photo/jquery_image/m0${i}.jpg">  
+                        <figcation>
+                            <label>
+                                <input type="checkbox" class="chkdel form-check-input" name="chkdel">delete
+                            </label>    
+                        </figcation>  
+                    </figure>
+                `
+                $("#photo").html(s);
+            }
+        };
+    </script>
+    <label class="all">
+        <input type="checkbox" id="chkall" class="form-check-input">전체박스
+    </label>
+
+    <button type="button" class="btn btn-outline-danger btn -lg" id="btndel" style="margin-left: 100px;">체크된 사진 삭제</button>
+
+    
+    <button type="button" class="btn btn-outline-danger btn -lg" id="btnre" style="margin-left: 100px;">복구</button>
+
+    <div id="photo"></div>
+    <script>
+        //이벤트1
+        //전체 삭제를 체크하면 삭제 체크박스에 모두 체크/해제
+        $("#chkall").click(function(){
+            //prop 는 다른 것들과는 달르 checked 앞에 : 가 필요없음 
+            let allchk = $(this).prop("checked");
+            $("input[name='chkdel']").prop("checked", allchk);
+        });
+        $("#btndel").click(function(){
+            //parent 라면 한칸한칸 올라가지만
+            //parents 라면 상위태그 전부 중 하나를 곧바로 특정 가능
+            $(".chkdel:checked").each(function(){
+                $(this).parents("figure.photo").remove();
+            });
+        });
+        $("#btnre").click(function(){
+            //parent 라면 한칸한칸 올라가지만
+            //parents 라면 상위태그 전부 중 하나를 곧바로 특정 가능
+            init_photo();
+            $("#chkall").prop("checked", false);
+        });
+    </script>
+</body>
+</html>

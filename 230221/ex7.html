@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body,
+        body * {
+            font-family: 'Single Day';
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="alert alert-success">글꼴 모양</h1>
+    <label>
+        <input type="checkbox" name="font1" id="bold" value="bold">굵게
+    </label>
+    <label>
+        <input type="checkbox" name="font1" id="italic" value="italic">이탤릭
+    </label>
+    <label>
+        <input type="checkbox" name="font1" id="under" value="underline">밑줄
+    </label>
+
+    <br>
+    <hr>
+    <br>
+
+    <h2>폰트</h2>
+    <label>
+        <input type="radio" name="font2" value="Jua">쭈아
+    </label>
+    <label>
+        <input type="radio" name="font2" value="Gamja Flower">갬자
+    </label>
+    <label>
+        <input type="radio" name="font2" value="Nanum Pen Script">나눔
+    </label>
+
+
+    <br>
+    <hr>
+    <br>
+
+
+    <h3>폰트 크기</h3>
+    <label>
+        <input type="radio" name="font3" value="10px">10px
+    </label>
+    <label>
+        <input type="radio" name="font3" value="20px">20px
+    </label>
+    <label>
+        <input type="radio" name="font3" value="30px">30px
+    </label>
+
+    <br>
+    <hr>
+    <br>
+
+
+    <h4>메세지</h4>
+    <input type="text" id="write_txt" placeholder="메세지">
+
+    <br>
+    <hr>
+    <br>
+
+    <div id="result">결과가 나와용</div>
+
+    <script>
+
+        
+        
+        let write_txt = "";
+        
+        
+        $("#bold").click(function(){
+            let font1 = $("#bold").val();
+            if($("#bold").prop("checked")){
+                $("#result").css("font-weight", font1);
+            }else{
+                $("#result").css("font-weight", "");
+            }
+        });
+        
+        $("#italic").click(function(){
+            let font2 = $("#italic").val();
+            if($("#italic").is(":checked")){
+                $("#result").css("font-style", font2);
+            }else{
+                $("#result").css("font-style", "");
+            }
+        });
+        $("#under").click(function(){
+            let font3 = $("#under").val();
+            if($("#under").is(":checked")){
+                $("#result").css("text-decoration",font3);
+            }else{
+                $("#result").css("text-decoration","");
+            }
+        });
+
+        $("input[name='font2']").click(function(){
+            let font4 = $("input[name='font2']:checked").val();
+            if($(this).is(":checked")){
+                $("#result").css("font-family",font4);
+            }else{
+                $("#result").css("font-family","");
+            }
+        });
+
+        $("input[name='font3']").click(function(){
+            let font5 = $("input[name='font3']:checked").val();
+            if($(this).prop("checked")){
+                $("#result").css("font-size",font5);
+            }else{
+                $("#result").css("font-size","");
+            }
+        });
+
+        // "font-famlily": font4,
+        //             "font-size": font5
+
+        $("#write_txt").keypress(function (e) {
+            if (e.keyCode == 13) {
+                write_txt = $("#write_txt").val();
+                
+                $("#result").text(
+                    `
+                ${write_txt}
+                `
+                )
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
