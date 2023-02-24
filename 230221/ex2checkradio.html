@@ -78,6 +78,7 @@
 
         $("#btnresult").click(function(){
             let s = "[데이터 읽기]<br><br>"
+            //대충 요약하자면 input 의 home 이란 이름의 name이 몇 개나 체크되어 있는지 확인하는 것 (radio)
             s+= " 내 고향은 : " +$("input[name='home']:checked").val()+"<br>";
             s+= "내 성별 : " + $("input[name='gender']:checked").val()+"<br>";
 

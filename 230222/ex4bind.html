@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body,
+        body * {
+            font-family: 'Single Day';
+        }
+    </style>
+
+</head>
+
+<body>
+    <h3 class="alert alert-danger">
+        bs5의 dropdown 으로 이미지 선택
+    </h3>
+
+    <div class="dropdown" style="margin-left: 100px;">
+        <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown">
+            상품선택
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-items" href="#" src="../photo/shop/3.jpg">멀록</a></li>
+            <li><a class="dropdown-items" href="#" src="../photo/shop/6.jpg">김섭섭</a></li>
+            <li><a class="dropdown-items" href="#" src="../photo/shop/11.jpg">박밀리제</a></li>
+            <li><a class="dropdown-items" href="#" src="../photo/shop/13.jpg">도 르무마</a></li>
+            <li> <a class="dropdown-items" href="#" src="../photo/shop/15.jpg">방똘똘</a></li>
+        </ul>
+        &nbsp;&nbsp;
+        <b class="shopname">shopname</b>
+    </div>
+
+    <br><br>
+    <h5>사진 크기 조절</h5>
+    <input type="range" class="form-range photosize" style="width: 300px;" min="50" max="400" step="10">
+    &nbsp;&nbsp;
+    <b class="shopwidth"></b>
+
+    <!--사진-->
+    <img src="../photo/shop/32.jpg" class="photo">
+
+    <script>
+        let init_width = 230;
+
+        //range 의 초기값을 initwidth로
+        $("photosize").val(init_width);
+        //b.shopwidth 에도 초기값 출력
+        $("photosize").text(init_width);
+        //사진의 너비에도 초기값 적용
+        $("#photo").css({
+            "width": init_width,
+            "border": "10px inset pink",
+            "margin-left": "50px",
+            "margin-top": "20px",
+        });
+
+        //dropdown event
+        $("ul.dropdown-menu a.dropdown-items").click(function () {
+            let imgSrc = $(this).attr("src");
+            let imgText = $(this).text();
+            console.log(imgSrc, imgText);
+
+            $("img.photo").attr("src", imgSrc);
+            $("b.shopname").text(imgText);
+        });
+        // $(".photosize").mouseover(function () {
+        //     let w = $(this).val();
+        //     $("b.shopwodth").text(w);
+        //     $("img.photo").css("width", w + "px");
+        // });
+        // $(".photosize").change(function () {
+        //     let w = $(this).val();
+        //     $("b.shopwodth").text(w);
+        //     $("img.photo").css("width", w + "px");
+        // });
+
+    </script>
+    <!--두 개 이벤트가 안쪽 로직이 같을 시에는 두 개 이벤트를 묶으면 좋다-->
+    <script>
+        //.bind 가 좋다
+        //.on 도 기억하기
+        $(".photosize").bind("mouseover change", function () {
+            let w = $(this).val();
+            $("b.shopwodth").text(w);
+            $("img.photo").css("width", w + "px");
+        });
+
+    </script>
+
+
+</body>
+
+</html>

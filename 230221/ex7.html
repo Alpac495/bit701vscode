@@ -82,52 +82,52 @@
 
     <script>
 
-        
-        
+
+
         let write_txt = "";
-        
-        
-        $("#bold").click(function(){
+
+
+        $("#bold").click(function () {
             let font1 = $("#bold").val();
-            if($("#bold").prop("checked")){
+            if ($(this).prop("checked")) {
                 $("#result").css("font-weight", font1);
-            }else{
+            } else {
                 $("#result").css("font-weight", "");
             }
         });
-        
-        $("#italic").click(function(){
+
+        $("#italic").click(function () {
             let font2 = $("#italic").val();
-            if($("#italic").is(":checked")){
+            if ($(this).is(":checked")) {
                 $("#result").css("font-style", font2);
-            }else{
+            } else {
                 $("#result").css("font-style", "");
             }
         });
-        $("#under").click(function(){
+        $("#under").click(function () {
             let font3 = $("#under").val();
-            if($("#under").is(":checked")){
-                $("#result").css("text-decoration",font3);
-            }else{
-                $("#result").css("text-decoration","");
+            if ($(this).is(":checked")) {
+                $("#result").css("text-decoration", font3);
+            } else {
+                $("#result").css("text-decoration", "");
             }
         });
 
-        $("input[name='font2']").click(function(){
+        $("input[name='font2']").click(function () {
             let font4 = $("input[name='font2']:checked").val();
-            if($(this).is(":checked")){
-                $("#result").css("font-family",font4);
-            }else{
-                $("#result").css("font-family","");
+            if ($(this).is(":checked")) {
+                $("#result").css("font-family", font4);
+            } else {
+                $("#result").css("font-family", "");
             }
         });
 
-        $("input[name='font3']").click(function(){
+        $("input[name='font3']").click(function () {
             let font5 = $("input[name='font3']:checked").val();
-            if($(this).prop("checked")){
-                $("#result").css("font-size",font5);
-            }else{
-                $("#result").css("font-size","");
+            if ($(this).prop("checked")) {
+                $("#result").css("font-size", font5);
+            } else {
+                $("#result").css("font-size", "");
             }
         });
 
@@ -137,7 +137,7 @@
         $("#write_txt").keypress(function (e) {
             if (e.keyCode == 13) {
                 write_txt = $("#write_txt").val();
-                
+
                 $("#result").text(
                     `
                 ${write_txt}
@@ -145,6 +145,12 @@
                 )
             }
         });
+
+        //keyup 은 바로바로 적용되는 것
+        // $("#write_txt").keyup(function (e) {
+        //     $("#result").html($(this).val());
+
+        // });
 
     </script>
 
