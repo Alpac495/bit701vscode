@@ -32,6 +32,13 @@
             /*디스플레이 논과 같음*/
             /*visibility: hidden;*/
         }
+        ol.today li{
+            cursor: pointer;
+            font-size: 22px;
+        }
+        ol.today li:hover{
+            background-color: rgba(0, 0, 0, 0.8);
+        }
     </style>    
     <script>
         $(function(){
@@ -63,6 +70,27 @@
                 let color = $(this).attr("color");
                 let text = $(this).text();
                 $("div.mytooltip").css("background-color",color).html(text);
+                $("div.mytooltip").show();
+              },
+              mouseout:function(){
+                $("div.mytooltip").hide();
+              },
+              mousemove:function(e){
+                $("div.mytooltip").css({
+                    left:e.pageX+"px",
+                    top:e.pageY+"px"
+                });
+              }  
+            })
+
+            $("ol.today li").bind({
+              mouseover:function(){
+                let img = $(this).attr("photo");
+                let text = $(this).text();
+                $("div.mytooltip").html(`
+                <b>${text}</b><br>
+                <img src=${img} width=100>
+                `)
                 $("div.mytooltip").fadeIn();
               },
               mouseout:function(){
@@ -85,7 +113,7 @@
         tooltiptooltiptooltiptooltiptooltiptooltiptooltip
     </a>
     <pre>
-        프리미어리그(EPL) 맨체스터 유나이티드(맨유)가 15년 만에 <b class="view" color="pink"></b>FC바르셀로나(스페인)를</b> 상대로 승전고를 울리며 유럽축구연맹(UEFA) 유로파리그(UEL) <b class="view" color="pink">16강에 진출했습니다.</b>
+        프리미어리그(EPL) 맨체스터 유나이티드(맨유)가 15년 만에 <b class="view" color="pink">FC바르셀로나(스페인)를</b> 상대로 승전고를 울리며 유럽축구연맹(UEFA) 유로파리그(UEL) <b class="view" color="pink">16강에 진출했습니다.</b>
 
         맨유는 24일(한국시간) 올드 트래퍼드에서 열린 UEL 플레이오프(PO) 2차전에서 2대 1로 이겼습니다.
         
@@ -95,6 +123,15 @@
         
         당시 맨유는 한국 축구의 전설, 박지성 전북 테크니컬 디렉터가 맹활약해 1대 0으로 이겼습니다.
     </pre>
+    <hr>
+    <h2>오늘 제 식사 목록 및 쇼핑 목록입 니다</h2>
+    <ol type="1" class="today">
+        <!--photo는 그냥 데이터 가져오려고 삽입한 녀석인듯-->
+        <li photo="../photo/food/1.jpg">슈퍼 머스타드 샌드비치</li>
+        <li photo="../photo/food/11.jpg">슈퍼 머스타드 빙수</li>
+        <li photo="../photo/shop/8.jpg">응애</li>
+        <li photo="../photo/shop/29.jpg">애응</li>
+    </ol>
     <div class="mytooltip">
         java<br>
         html5<br>
