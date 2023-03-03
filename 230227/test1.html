@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+</head>
+
+
+
+<body>
+
+    <input type="text" id="sc1">
+    <input type="text" id="sc2">
+    <input type="text" id="sc3">
+    <button id="btn1">계산</button>
+    <div id="result"></div>
+
+    <script>
+        $(function(){
+            $("#btn1").click(function(){
+                let sc1 = parseInt($("#sc1").val());
+                let sc2 = parseInt($("#sc2").val());
+                let sc3 = parseInt($("#sc3").val());
+
+                $("#result").html(`
+                    총점 : ${sc1 + sc2 + sc3}
+                    평균 : ${(sc1 + sc2 + sc3)/3}
+
+                `)
+
+
+
+            });
+        }); 
+
+    </script>
+</body>
+
+
+</html>
